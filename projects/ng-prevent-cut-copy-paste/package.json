@@ -1,0 +1,26 @@
+{
+  "name": "ng-prevent-cut-copy-paste",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^9.0.7",
+    "@angular/core": "^9.0.7"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "author": {
+    "name": "Dario E Gonzalez B",
+    "email": "darioegb@gmail.com"
+  },
+  "description": "A package to prevent cut, copy and paste to input",
+  "keywords": [
+    "ng-prevent-cut-copy-paste",
+    "ng-prevent",
+    "angular prevent cut copy paste"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/darioegb/ng-prevent-cut-copy-paste/"
+  },
+  "license": "MIT"
+}

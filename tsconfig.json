@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-prevent-cut-copy-paste": [
+        "dist/ng-prevent-cut-copy-paste/ng-prevent-cut-copy-paste",
+        "dist/ng-prevent-cut-copy-paste"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

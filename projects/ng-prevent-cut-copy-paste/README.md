@@ -45,10 +45,6 @@ After configuration you can used the directive as follow example
   <input type="password" formControlName="password" placeholder="Password" class="form-control" ngPreventCutCopyPaste>
 ```
 
-## Test
-
-ng-prevent-cut-copy-paste-showcase is the testing project. Use ng s to run it.
-
 ## License
 
 MIT
