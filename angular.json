@@ -19,7 +19,8 @@
             "production": {
               "tsConfig": "projects/ng-prevent-cut-copy-paste/tsconfig.lib.prod.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -27,18 +28,6 @@
             "main": "projects/ng-prevent-cut-copy-paste/src/test.ts",
             "tsConfig": "projects/ng-prevent-cut-copy-paste/tsconfig.spec.json",
             "karmaConfig": "projects/ng-prevent-cut-copy-paste/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ng-prevent-cut-copy-paste/tsconfig.lib.json",
-              "projects/ng-prevent-cut-copy-paste/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -62,7 +51,6 @@
             "main": "projects/ng-prevent-cut-copy-paste-showcase/src/main.ts",
             "polyfills": "projects/ng-prevent-cut-copy-paste-showcase/src/polyfills.ts",
             "tsConfig": "projects/ng-prevent-cut-copy-paste-showcase/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "projects/ng-prevent-cut-copy-paste-showcase/src/favicon.ico",
               "projects/ng-prevent-cut-copy-paste-showcase/src/assets"
@@ -70,7 +58,13 @@
             "styles": [
               "projects/ng-prevent-cut-copy-paste-showcase/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -83,7 +77,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -101,7 +94,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -135,19 +129,6 @@
               "projects/ng-prevent-cut-copy-paste-showcase/src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ng-prevent-cut-copy-paste-showcase/tsconfig.app.json",
-              "projects/ng-prevent-cut-copy-paste-showcase/tsconfig.spec.json",
-              "projects/ng-prevent-cut-copy-paste-showcase/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {
