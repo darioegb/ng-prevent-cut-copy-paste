@@ -44,12 +44,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-prevent-cut-copy-paste-showcase",
+            "outputPath": {
+              "base": "dist/ng-prevent-cut-copy-paste-showcase"
+            },
             "index": "projects/ng-prevent-cut-copy-paste-showcase/src/index.html",
-            "main": "projects/ng-prevent-cut-copy-paste-showcase/src/main.ts",
-            "polyfills": "projects/ng-prevent-cut-copy-paste-showcase/src/polyfills.ts",
+            "polyfills": [
+              "projects/ng-prevent-cut-copy-paste-showcase/src/polyfills.ts"
+            ],
             "tsConfig": "projects/ng-prevent-cut-copy-paste-showcase/tsconfig.app.json",
             "assets": [
               "projects/ng-prevent-cut-copy-paste-showcase/src/favicon.ico",
@@ -59,12 +62,11 @@
               "projects/ng-prevent-cut-copy-paste-showcase/src/styles.scss"
             ],
             "scripts": [],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "projects/ng-prevent-cut-copy-paste-showcase/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -79,8 +81,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
