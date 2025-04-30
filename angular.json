@@ -147,6 +147,5 @@
     }},
   "cli": {
     "analytics": "76bc2ef6-ca02-47cf-8b2b-ee2cff48713c"
-  },
-  "defaultProject": "ng-prevent-cut-copy-paste"
+  }
 }
