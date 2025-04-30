@@ -8,6 +8,7 @@ Latest version available for each version of Angular
 
 | ng-prevent-cut-copy-paste | Angular        |
 |---------------------------|----------------|
+| 1.1.2                     | 16.x to 19.x   |
 | 1.1.1                     | 13.x 12.x 11.x |
 | 1.1.0                     | 13.x 12.x 11.x |
 | 1.0.0                     | 9.x 8.x 7.x    |

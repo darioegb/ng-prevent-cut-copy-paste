@@ -1,6 +1,6 @@
 {
   "name": "ng-prevent-cut-copy-paste",
-  "version": "1.1.1",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
