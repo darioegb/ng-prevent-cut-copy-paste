@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[ngPreventCutCopyPaste]'
+    selector: '[ngPreventCutCopyPaste]',
+    standalone: false
 })
 export class NgPreventCutCopyPasteDirective {
 

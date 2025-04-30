@@ -1,37 +1,42 @@
-import { Component } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { Component } from "@angular/core";
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+} from "@angular/forms";
+import { distinctUntilChanged } from "rxjs/operators";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
+  standalone: false,
 })
 export class AppComponent {
   form: UntypedFormGroup;
   formValue: any;
 
-  constructor(
-    private fb: UntypedFormBuilder
-  ) { }
+  constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit() {
     this.form = this.fb.group({
       username: [null, [Validators.required, Validators.maxLength(50)]],
-      password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(50)]],
+      password: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(50),
+        ],
+      ],
     });
 
     // Only for delete form value is invalid
-    this.form.statusChanges
-      .pipe(
-        distinctUntilChanged()
-      )
-      .subscribe(status => {
-        if (status === 'INVALID') {
-          this.formValue = null;
-        }
-      });
-
+    this.form.statusChanges.pipe(distinctUntilChanged()).subscribe((status) => {
+      if (status === "INVALID") {
+        this.formValue = null;
+      }
+    });
   }
 
   get formControls() {
@@ -44,5 +49,4 @@ export class AppComponent {
     }
     this.formValue = this.form.value;
   }
-
 }
