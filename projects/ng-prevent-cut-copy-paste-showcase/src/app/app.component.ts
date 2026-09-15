@@ -1,22 +1,30 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, inject } from '@angular/core'
+import { JsonPipe, NgIf } from '@angular/common'
 import {
+  ReactiveFormsModule,
   UntypedFormGroup,
   UntypedFormBuilder,
   Validators,
-} from "@angular/forms";
-import { distinctUntilChanged } from "rxjs/operators";
+} from '@angular/forms'
+import { distinctUntilChanged } from 'rxjs/operators'
+import { NgPreventCutCopyPasteDirective } from 'ng-prevent-cut-copy-paste'
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
-  standalone: false,
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [
+    ReactiveFormsModule,
+    NgIf,
+    JsonPipe,
+    NgPreventCutCopyPasteDirective,
+  ],
 })
-export class AppComponent {
-  form: UntypedFormGroup;
-  formValue: any;
+export class AppComponent implements OnInit {
+  private readonly fb = inject(UntypedFormBuilder)
 
-  constructor(private fb: UntypedFormBuilder) {}
+  form!: UntypedFormGroup
+  formValue: Record<string, unknown> | null = null
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -29,24 +37,24 @@ export class AppComponent {
           Validators.maxLength(50),
         ],
       ],
-    });
+    })
 
     // Only for delete form value is invalid
     this.form.statusChanges.pipe(distinctUntilChanged()).subscribe((status) => {
-      if (status === "INVALID") {
-        this.formValue = null;
+      if (status === 'INVALID') {
+        this.formValue = null
       }
-    });
+    })
   }
 
   get formControls() {
-    return this.form.controls;
+    return this.form.controls
   }
 
   onSubmit() {
     if (this.form.invalid) {
-      return;
+      return
     }
-    this.formValue = this.form.value;
+    this.formValue = this.form.value
   }
 }

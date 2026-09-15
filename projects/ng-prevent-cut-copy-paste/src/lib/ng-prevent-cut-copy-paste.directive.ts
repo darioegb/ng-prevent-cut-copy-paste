@@ -1,17 +1,31 @@
-import { Directive, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, inject, input } from '@angular/core'
+import { DEFAULT_CONFIG } from './ng-prevent-cut-copy-paste.constants'
+import { PreventEvent } from './ng-prevent-cut-copy-paste.interfaces'
+import { NG_PREVENT_CUT_COPY_PASTE_CONFIG } from './ng-prevent-cut-copy-paste.token'
 
 @Directive({
-    selector: '[ngPreventCutCopyPaste]',
-    standalone: false
+  selector: '[ngPreventCutCopyPaste]',
+  exportAs: 'ngPreventCutCopyPaste',
+  host: {
+    '(cut)': 'handleEvent($event)',
+    '(copy)': 'handleEvent($event)',
+    '(paste)': 'handleEvent($event)',
+  },
 })
 export class NgPreventCutCopyPasteDirective {
+  private readonly defaultConfig = inject(NG_PREVENT_CUT_COPY_PASTE_CONFIG, {
+    optional: true,
+  })
 
-  private events = ['cut', 'copy', 'paste']; 
+  // Alias avoids colliding with the bare `ngPreventCutCopyPaste` attribute selector.
+  readonly events = input<PreventEvent[]>(
+    this.defaultConfig?.events ?? DEFAULT_CONFIG.events,
+    { alias: 'ngPreventCutCopyPasteEvents' },
+  )
 
-  constructor(
-    el: ElementRef,
-     renderer: Renderer2) {
-    this.events.forEach(e => renderer.listen(el.nativeElement, e, (event) => event.preventDefault()));
+  protected handleEvent(event: Event): void {
+    if (this.events().includes(event.type as PreventEvent)) {
+      event.preventDefault()
+    }
   }
-
 }
