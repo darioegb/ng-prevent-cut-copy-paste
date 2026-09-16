@@ -1,3 +1,22 @@
+## 2.0.0 (2026-09-16)
+
+* chore: migrate npm to pnmp ([a1deac8](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/a1deac8))
+* chore: update package version ([563f39e](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/563f39e))
+* chore(release): 1.0.0 [skip ci] ([5620d2f](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/5620d2f))
+* feat!: modernize library with standalone APIs, tests and CI tooling ([5a3167b](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/5a3167b))
+* migrate to angular 14 ([de0ca60](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/de0ca60))
+* migrate to angular 15 ([69fb45c](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/69fb45c))
+* migrate to angular 16 ([5a8a0ad](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/5a8a0ad))
+* migrate to angular 17 ([526f4ea](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/526f4ea))
+* migrate to angular 18 ([eb3e406](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/eb3e406))
+* migrate to angular 19 ([d2eecf0](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/d2eecf0))
+
+### BREAKING CHANGE
+
+* peerDependencies now require @angular/core and
+@angular/common >=20.0.0. NgPreventCutCopyPasteModule is deprecated;
+use provideNgPreventCutCopyPaste() instead.
+
 ## 1.0.0 (2026-09-16)
 
 * Add CHANGELOG ([bafc7ed](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/bafc7ed))
