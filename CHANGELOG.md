@@ -1,3 +1,8 @@
+## <small>2.0.1 (2026-10-27)</small>
+
+* fix(sonar): exclude coverage report, scripts and eslint config from analysis ([ed3f41b](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/ed3f41b))
+* ci(release): publish with npm provenance via trusted publishing (OIDC) ([fa91b61](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/fa91b61))
+
 ## 2.0.0 (2026-09-16)
 
 * chore: migrate npm to pnmp ([a1deac8](https://github.com/darioegb/ng-prevent-cut-copy-paste/commit/a1deac8))
